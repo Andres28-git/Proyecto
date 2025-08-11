@@ -1,4 +1,5 @@
 CREATE TABLE marcador (
+    id INT SERIAL PRIMARY KEY,
     nombre VARCHAR(127) NOT NULL,
     tipo_marcacion ENUM('entrada', 'salida') NOT NULL,
     fecha_hora DATETIME NOT NULL,
@@ -8,3 +9,4 @@ CREATE TABLE marcador (
 	feUltModificacion DATE NULL COMMENT 'Fecha de última modificación',
 	usrUltModificacion varchar(15) NULL COMMENT 'Usuario de última modificación'
 );
+

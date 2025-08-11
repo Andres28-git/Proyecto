@@ -3,17 +3,31 @@ package com.futurotech.controller.entity;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
+
 public class MarcaEntity {
  private String nombre;
  private LocalDateTime fechaHora;
  private TipoMarcacionEntity tipoMarca;
 
+ public void setNombre(String nombre) throws IllegalArgumentException {
+   if (nombre != null && !nombre.trim().isEmpty()){
+      if(nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")){
+         this.nombre = nombre;
+      } else {
+         throw new IllegalArgumentException("El nombre solo debe contener letras y espacios.");
+      }
+      }
+       else {
+         throw new IllegalArgumentException("El nombre no puede estar vacío.");
+      }
+     }   
+   
+
  public String getNombre() {
     return nombre;
  }
- public void setNombre(String nombre) {
-    this.nombre = nombre;
- }
+
  public LocalDateTime getFechaHora() {
     return fechaHora;
  }
